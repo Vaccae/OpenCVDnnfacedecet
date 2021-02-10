@@ -1,0 +1,4 @@
+# OpenCVDnnfacedecet
+OpenCV4.5.1使用DNN人脸检测及Contrib模块下的FaceMarkLBF人脸关键点检测
+
+OpenCVFaceDemo是使用FaceMarkLBF的关键点检测
