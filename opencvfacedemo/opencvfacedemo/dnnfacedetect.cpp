@@ -2,6 +2,7 @@
 
 
 
+
 //构造函数
 dnnfacedetect::dnnfacedetect(string modelBinary, string modelDesc)
 {
@@ -24,9 +25,16 @@ dnnfacedetect::~dnnfacedetect()
 //初始化dnnnet
 bool dnnfacedetect::initdnnNet()
 {
-	_net = dnn::readNetFromTensorflow(_modelbinary, _modeldesc);
-	_net.setPreferableBackend(dnn::DNN_BACKEND_OPENCV);
-	_net.setPreferableTarget(dnn::DNN_TARGET_CPU);
+	try
+	{
+		_net = dnn::readNetFromTensorflow(_modelbinary, _modeldesc);
+		_net.setPreferableBackend(dnn::DNN_BACKEND_OPENCV);
+		_net.setPreferableTarget(dnn::DNN_TARGET_CPU);
+	}
+	catch (const std::exception& ex)
+	{
+		throw ex.what();
+	}
 
 	return !_net.empty();
 }
@@ -110,9 +118,9 @@ bool dnnfacedetect::detectRect(Mat frame, vector<Rect> &rects)
 			int xRightTop = static_cast<int>(detectionMat.at<float>(i, 5) * tmpsrc.cols);
 			int yRightTop = static_cast<int>(detectionMat.at<float>(i, 6) * tmpsrc.rows);
 			//生成矩形存入检测的数组中
-			Rect rect((int)xLeftBottom, (int)yLeftBottom,
-				(int)(xRightTop - xLeftBottom),
-				(int)(yRightTop - yLeftBottom));
+			Rect rect((int)xLeftBottom-5, (int)yLeftBottom-5,
+				(int)(xRightTop - xLeftBottom)+10,
+				(int)(yRightTop - yLeftBottom)+10);
 
 			rects.push_back(rect);
 		}

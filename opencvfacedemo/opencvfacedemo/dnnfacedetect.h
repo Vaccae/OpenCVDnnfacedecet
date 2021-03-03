@@ -30,5 +30,6 @@ public:
 	vector<Mat> detect(Mat frame);
 
 	bool detectRect(Mat frame, vector<Rect> &rects);
+
 };
 

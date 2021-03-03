@@ -27,17 +27,12 @@
     <ClCompile Include="chkfacemark.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="opencv_face_detector.pbtxt">
-      <Filter>Model</Filter>
-    </None>
-    <None Include="opencv_face_detector_uint8.pb">
-      <Filter>Model</Filter>
-    </None>
-    <None Include="lbfmodel.yaml">
-      <Filter>Model</Filter>
-    </None>
+    <ClCompile Include="CvUtils.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="DelaunayCore.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="dnnfacedetect.h">
@@ -46,5 +41,16 @@
     <ClInclude Include="chkfacemark.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="CvUtils.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DelaunayCore.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CopyFileToFolders Include="lbfmodel.yaml" />
+    <CopyFileToFolders Include="opencv_face_detector.pbtxt" />
+    <CopyFileToFolders Include="opencv_face_detector_uint8.pb" />
   </ItemGroup>
 </Project>
